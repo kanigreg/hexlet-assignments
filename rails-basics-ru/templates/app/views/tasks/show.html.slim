@@ -1,0 +1,15 @@
+h1 Task =@task.id
+
+p= @task.name
+p= @task.description
+p Status: #{ @task.status }
+p Creator: #{ @task.creator }
+p Performer: #{ @task.performer }
+-if @task.completed
+  p Completed
+
+br
+
+=> link_to 'Back', tasks_path
+=> link_to 'Edit', edit_task_path(@task)
+= link_to 'Delete', task_path(@task), method: :delete, data: { confirm: 'Are you shure you want to delete the task?'}

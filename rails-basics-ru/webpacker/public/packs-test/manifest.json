@@ -1,0 +1,19 @@
+{
+  "application.js": "/packs-test/js/application-835c0865fa5625fe7978.js",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs-test/js/application-835c0865fa5625fe7978.js"
+      ]
+    }
+  },
+  "media/images/logo.png": "/packs-test/media/images/logo-a0b86e896b6dfac8cd21d3bbef4f0153.png",
+  "media/webfonts/fa-brands-400.ttf": "/packs-test/media/webfonts/fa-brands-400-f9ee61fa.ttf",
+  "media/webfonts/fa-brands-400.woff2": "/packs-test/media/webfonts/fa-brands-400-e1a247a5.woff2",
+  "media/webfonts/fa-regular-400.ttf": "/packs-test/media/webfonts/fa-regular-400-abf801b7.ttf",
+  "media/webfonts/fa-regular-400.woff2": "/packs-test/media/webfonts/fa-regular-400-639d2000.woff2",
+  "media/webfonts/fa-solid-900.ttf": "/packs-test/media/webfonts/fa-solid-900-b48ad290.ttf",
+  "media/webfonts/fa-solid-900.woff2": "/packs-test/media/webfonts/fa-solid-900-66104b76.woff2",
+  "media/webfonts/fa-v4compatibility.ttf": "/packs-test/media/webfonts/fa-v4compatibility-f601162a.ttf",
+  "media/webfonts/fa-v4compatibility.woff2": "/packs-test/media/webfonts/fa-v4compatibility-745989aa.woff2"
+}

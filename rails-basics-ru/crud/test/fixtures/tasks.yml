@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Task1
+  description: Description1
+  status: new
+  creator: Arthur Levin
+  performer: Arthur Levin
+  completed: true
+
+two:
+  name: Task2
+  description: Description2
+  status: modified
+  creator: Ned Doe
+  performer: Arthur Levin
+  completed: false

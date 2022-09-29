@@ -1,0 +1,16 @@
+<h1>Task <%= @task.id %></h1>
+
+<p><%= @task.name %><p>
+<p><%= @task.description %><p>
+<p>Status: <%= @task.status %><p>
+<p>Creator: <%= @task.creator %><p>
+<p>Performer: <%= @task.performer %><p>
+<% if @task.completed %>
+  <p>Completed</p>
+<% end %>
+
+<br>
+
+<%= link_to 'Back', tasks_path %>
+<%= link_to 'Edit', edit_task_path(@task) %>
+<%= link_to 'Delete', @task, method: :delete, data: { confirm: 'Are you shure you want to delete the task?'} %>
