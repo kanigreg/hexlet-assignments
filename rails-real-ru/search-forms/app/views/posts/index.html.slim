@@ -1,0 +1,32 @@
+= content_for :title do
+  = 'Posts'
+
+= link_to 'New Post', new_post_path, class: 'btn btn-primary my-2'
+
+.p-3.bg-light
+  / BEGIN
+  = simple_form_for @q, url: posts_path do |f|
+    = f.search_field :title_i_cont
+    = f.search_field :aasm_state_eq, collection: %i[draft published]
+  / END
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' } Title
+      th{ scope = 'col' } State
+      th
+
+  tbody
+    - @posts.each_with_index do |post, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = post.title
+        td = post.aasm.current_state
+        td.d-flex
+          .me-4 = link_to 'Show', post
+          .me-4 = link_to 'Edit', edit_post_path(post)
+          = link_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete
+
+= link_to 'New Post', new_post_path, class: 'btn btn-primary'
