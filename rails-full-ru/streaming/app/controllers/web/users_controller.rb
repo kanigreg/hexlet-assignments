@@ -58,15 +58,20 @@ class Web::UsersController < Web::ApplicationController
 
   # BEGIN
   def stream_csv
-    response.headers.delete('Content-Length')
-    response.headers['Cache-Control'] = 'no-cache'
-
     respond_to do |format|
       format.csv do
-        data = generate_csv(User.column_names, User.all)
-        send_data(data.each, filename: 'report.csv')
+        headers["X-Accel-Buffering"] = "no"
+        headers["Cache-Control"] = "no-cache"
+        headers["Content-Type"] = "text/csv; charset=utf-8"
+        headers["Content-Disposition"] = %(attachment; filename="report.csv")
+        headers["Last-Modified"] = Time.zone.now.ctime.to_s
+
+        data = generate_data(User.column_names, User.all)
+        self.response_body = data
       end
     end
+  ensure
+    response.stream.close
   end
   # END
 
@@ -83,6 +88,14 @@ class Web::UsersController < Web::ApplicationController
   end
 
   # BEGIN
+  def generate_data(column_names, records)
+    Enumerator.new do |data|
+      data << CSV.generate_line(column_names)
+      records.find_each do |record|
+        data << CSV.generate_line(record.attributes.values_at(*column_names))
+      end
+    end
+  end
   # END
 
   def user_params
